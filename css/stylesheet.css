@@ -118,7 +118,6 @@ input[type="range"]::-webkit-slider-thumb {
   max-width: 600px;
   max-height: 600px;
   box-shadow: 0 0 10px #000000;
-  
 }
 
 .grid-item {
@@ -138,7 +137,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .empty {
-    width: 129px;
+  width: 129px;
 }
 
 footer {
@@ -146,6 +145,11 @@ footer {
   justify-content: center;
   width: 100%;
   font-weight: 500;
+}
+
+.active {
+  background-color: rgb(41, 41, 41);
+  color: white;
 }
 
 /* //////////MEDIA QUERIES /////////// */

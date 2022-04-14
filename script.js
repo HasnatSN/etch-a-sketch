@@ -6,8 +6,10 @@ const randomColor = document.querySelector(".random-color");
 const eraserBtn = document.querySelector(".eraser");
 const clearBtn = document.querySelector(".clear");
 
-let = currentSize = 32;
-let = currentColor = document.querySelector("#color-picker").value;
+let currentSize = 32;
+let currentColor = document.querySelector("#color-picker").value;
+let numberRandomColor = 100000000;
+let isRandom = false;
 
 sliderInput.addEventListener("input", (e) => {
   document.querySelector(
@@ -19,18 +21,30 @@ sliderInput.addEventListener("input", (e) => {
 
 inputColor.addEventListener("input", (e) => {
   currentColor = e.target.value;
+  isRandom = false;
 });
 
 colorBtn.addEventListener("click", function () {
+  isRandom = false;
   currentColor = document.querySelector("#color-picker").value;
+  colorBtn.classList.add("active");
+  randomColor.classList.remove("active");
+  eraserBtn.classList.remove("active");
 });
 
 randomColor.addEventListener("click", function () {
-    
+  isRandom = true;
+  randomColor.classList.add("active");
+  colorBtn.classList.remove("active");
+  eraserBtn.classList.remove("active");
 });
 
 eraserBtn.addEventListener("click", function () {
+  isRandom = false;
   currentColor = "white";
+  eraserBtn.classList.add("active");
+  colorBtn.classList.remove("active");
+  randomColor.classList.remove("active");
 });
 
 clearBtn.addEventListener("click", function () {
@@ -43,7 +57,12 @@ function assignEventL() {
 
   gridItems.forEach((gridItem) => {
     gridItem.addEventListener("click", () => {
-      gridItem.style.backgroundColor = `${currentColor}`;
+      if (isRandom == true) {
+        currentColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        gridItem.style.backgroundColor = `${currentColor}`;
+      } else {
+        gridItem.style.backgroundColor = `${currentColor}`;
+      }
     });
   });
 }
