@@ -28,3 +28,5 @@ function makeGrid(size) {
         canvasGrid.appendChild(cell).className = "grid-item";
     };
 };
+
+makeGrid(32);
