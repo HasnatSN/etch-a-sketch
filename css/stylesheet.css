@@ -110,6 +110,9 @@ input[type="range"]::-webkit-slider-thumb {
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   max-width: 300px;
   max-height: 300px;
+  min-width: 300px;
+  min-height: 300px;
+  gap: 0;
 }
 
 .grid-item {

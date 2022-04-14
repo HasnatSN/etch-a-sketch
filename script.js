@@ -3,15 +3,19 @@ const canvasGrid = document.querySelector('.canvas');
 
 let = canvasSize = 0;
 
-sliderInput.addEventListener(
-  "change",
-  function () {
-    canvasSize = sliderInput.value;
-    document.querySelector(".lbl-slider").textContent = `${canvasSize}x${canvasSize}`;
-    makeGrid(canvasSize);
-  },
-  false
-);
+// sliderInput.addEventListener(
+//   "change",
+//   function () {
+//     canvasSize = sliderInput.value;
+//     document.querySelector(".lbl-slider").textContent = `${canvasSize}x${canvasSize}`;
+//     makeGrid(canvasSize);
+//   },
+//   false
+// );
+
+sliderInput.addEventListener('input', e => {
+    document.querySelector('.lbl-slider').textContent = `${e.target.value}x${e.target.value}`
+})
 
 function makeGrid(size) {
     canvasGrid.style.setProperty('--grid-rows', size);
