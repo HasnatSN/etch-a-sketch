@@ -15,6 +15,7 @@ let = canvasSize = 0;
 
 sliderInput.addEventListener('input', e => {
     document.querySelector('.lbl-slider').textContent = `${e.target.value}x${e.target.value}`
+    makeGrid(e.target.value);
 })
 
 function makeGrid(size) {
@@ -23,7 +24,7 @@ function makeGrid(size) {
     canvasGrid.innerText = '';
     for (c = 0; c < (size * size); c++) {
         let cell = document.createElement("div");
-        cell.innerText = "+";
+        cell.innerText = "";
         canvasGrid.appendChild(cell).className = "grid-item";
     };
 };

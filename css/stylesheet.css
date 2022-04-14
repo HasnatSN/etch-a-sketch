@@ -29,13 +29,16 @@ h1 {
 }
 
 main {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
   gap: 3em;
   margin: 0 auto;
   width: 100%;
-  height: 100%;
-  justify-content: center;
+  height: fit-content;
+  margin-bottom: 25%;
   flex-grow: 1;
+  justify-content: center;
 }
 
 .inputs {
@@ -43,6 +46,7 @@ main {
   flex-direction: column;
   gap: 0.7em;
   align-items: center;
+  margin: auto auto;
 }
 
 button {
@@ -108,11 +112,11 @@ input[type="range"]::-webkit-slider-thumb {
   display: grid;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
-  max-width: 300px;
-  max-height: 300px;
-  min-width: 300px;
-  min-height: 300px;
-  gap: 0;
+  color: white;
+  min-height: 400px;
+  min-width: 400px;
+  max-width: 400px;
+  max-height: 400px;
 }
 
 .grid-item {
@@ -122,6 +126,9 @@ input[type="range"]::-webkit-slider-thumb {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 1px;
+  min-height: 1px;
+  border: none;
 }
 
 footer {
@@ -135,6 +142,7 @@ footer {
 
 @media (max-width: 550px) {
   main {
+    display: flex;
     flex-direction: column-reverse;
   }
 
