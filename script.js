@@ -7,7 +7,7 @@ const eraserBtn = document.querySelector(".eraser");
 const clearBtn = document.querySelector(".clear");
 
 let = currentSize = 32;
-let = currentColor = 0;
+let = currentColor = document.querySelector("#color-picker").value;
 
 sliderInput.addEventListener("input", (e) => {
   document.querySelector(
@@ -25,7 +25,9 @@ colorBtn.addEventListener("click", function () {
   currentColor = document.querySelector("#color-picker").value;
 });
 
-randomColor.addEventListener("click", function () {});
+randomColor.addEventListener("click", function () {
+    
+});
 
 eraserBtn.addEventListener("click", function () {
   currentColor = "white";
@@ -33,7 +35,18 @@ eraserBtn.addEventListener("click", function () {
 
 clearBtn.addEventListener("click", function () {
   makeGrid(currentSize);
+  currentColor = document.querySelector("#color-picker").value;
 });
+
+function assignEventL() {
+  const gridItems = document.querySelectorAll(".grid-item");
+
+  gridItems.forEach((gridItem) => {
+    gridItem.addEventListener("click", () => {
+      gridItem.style.backgroundColor = `${currentColor}`;
+    });
+  });
+}
 
 function makeGrid(size) {
   canvasGrid.style.setProperty("--grid-rows", size);
@@ -44,14 +57,8 @@ function makeGrid(size) {
     cell.innerText = "";
     canvasGrid.appendChild(cell).className = "grid-item";
   }
+
+  assignEventL();
 }
 
 makeGrid(32);
-
-const gridItems = document.querySelectorAll(".grid-item");
-
-gridItems.forEach((gridItem) => {
-  gridItem.addEventListener("click", () => {
-    gridItem.style.backgroundColor = `${currentColor}`;
-  });
-});
