@@ -56,7 +56,7 @@ function assignEventL() {
   const gridItems = document.querySelectorAll(".grid-item");
 
   gridItems.forEach((gridItem) => {
-    gridItem.addEventListener("click", () => {
+    gridItem.addEventListener("touchmove", () => {
       if (isRandom == true) {
         currentColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
         gridItem.style.backgroundColor = `${currentColor}`;
