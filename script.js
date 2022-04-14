@@ -7,12 +7,6 @@ const eraserBtn = document.querySelector(".eraser");
 const clearBtn = document.querySelector(".clear");
 
 let mouseDown = 0;
-document.body.onmousedown = function() { 
-  ++mouseDown;
-}
-document.body.onmouseup = function() {
-  --mouseDown;
-}
 
 let currentSize = 32;
 let currentColor = document.querySelector("#color-picker").value;
@@ -59,6 +53,14 @@ clearBtn.addEventListener("click", function () {
   makeGrid(currentSize);
   currentColor = document.querySelector("#color-picker").value;
 });
+
+window.addEventListener('mouseup', e => {
+  mouseDown = 0;
+})
+
+window.addEventListener('mousedown', e => {
+  mouseDown = 1;
+})
 
 function assignEventL() {
   const gridItems = document.querySelectorAll(".grid-item");
