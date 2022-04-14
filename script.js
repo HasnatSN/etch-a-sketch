@@ -6,6 +6,14 @@ const randomColor = document.querySelector(".random-color");
 const eraserBtn = document.querySelector(".eraser");
 const clearBtn = document.querySelector(".clear");
 
+let mouseDown = 0;
+document.body.onmousedown = function() { 
+  ++mouseDown;
+}
+document.body.onmouseup = function() {
+  --mouseDown;
+}
+
 let currentSize = 32;
 let currentColor = document.querySelector("#color-picker").value;
 let numberRandomColor = 100000000;
@@ -57,10 +65,10 @@ function assignEventL() {
 
   gridItems.forEach((gridItem) => {
     gridItem.addEventListener("mouseover", () => {
-      if (isRandom == true) {
+      if (isRandom == true && mouseDown > 0) {
         currentColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
         gridItem.style.backgroundColor = `${currentColor}`;
-      } else {
+      } else if (mouseDown > 0) {
         gridItem.style.backgroundColor = `${currentColor}`;
       }
     });
